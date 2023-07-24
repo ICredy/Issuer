@@ -1,0 +1,54 @@
+﻿@using Newtonsoft.Json.Linq
+@using FaberController.Enums
+@using FaberController.Services
+@inject FCAgentService AgentService
+
+<style>
+    .custom-navbar-color {
+        background-color: #030B1C;
+        /* Replace with your desired color */
+    }
+</style>
+
+<nav class="navbar sticky-top navbar-dark custom-navbar-color">
+    <img src="http://icredy.ca/logo.png" width="200px" height="50px" alt="Logo">
+    <a class="navbar-brand d-flex justify-content-center" href="#">
+        <span class="align-self-center">Issuer</span>
+    </a>
+
+    @switch (@Status)
+
+    {
+
+        case @AgentStatus.Up:
+            <div class="status-light bg-success" role="status"></div>
+            break;
+
+        case @AgentStatus.Down:
+            <div class="status-light bg-danger" role="status"></div>
+            break;
+
+        case @AgentStatus.Loading:
+            <div class="spinner-grow text-light" role="status"></div>
+            break;
+
+        default:
+
+            break;
+
+    }
+</nav>
+
+@code {
+    public AgentStatus Status = AgentStatus.Loading;
+
+
+
+    protected override async Task OnInitializedAsync()
+
+    {
+
+        Status = await AgentService.GetStatus();
+
+    }
+}

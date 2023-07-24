@@ -1,0 +1,19 @@
+﻿<style>
+    .custom-card {
+        background-color: #1B6EC2;
+
+    }
+</style>
+
+<div class="card text-center shadow-sm custom-card">
+    <div class="card-body" >
+        <NavLink class="stretched-link text-decoration-none" href="@Url" style="color: white;">@Label</NavLink>
+    </div>
+</div>
+@code {
+    [Parameter]
+    public string Url { get; set; }
+
+    [Parameter]
+    public string Label { get; set; }
+}

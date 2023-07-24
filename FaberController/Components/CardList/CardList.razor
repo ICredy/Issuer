@@ -1,0 +1,35 @@
+﻿@using FaberController.Services
+@using FaberController.Components.Card
+@inject FCNavLinkService NavLinkService
+
+<div class="content">
+    <div class="card-deck">
+        @foreach (var NavLink in NavLinkService.GetNavLinks())
+
+        {
+            <Card Url="@NavLink.Url" Label="@NavLink.Label"></Card>
+        }
+    </div>
+</div>
+<br>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" width="200px" height="200px" alt="Image 1">
+        </div>
+        <div class="col-md-3">
+            <img src="https://images.unsplash.com/photo-1454779132693-e5cd0a216ed3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=871&q=80" width="200px" height="200px" alt="Image 2">
+        </div>
+        <div class="col-md-3">
+            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGJsb2NrY2hhaW4lMjB0ZWNobm9sb2d5fGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60" width="200px" height="200px" alt="Image 3">
+        </div>
+        <div class="col-md-3">
+            <img src="https://images.unsplash.com/photo-1562575214-da9fcf59b907?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=386&q=80" width="200px" height="200px" alt="Image 4">
+        </div>
+    </div>
+</div>
+
+@code {
+
+}
